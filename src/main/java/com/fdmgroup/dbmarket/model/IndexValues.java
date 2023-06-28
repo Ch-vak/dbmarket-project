@@ -35,40 +35,20 @@ public class IndexValues {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
-
 	public double getOpenaValue() {
 		return openaValue;
-	}
-
-	public void setOpenaValue(double openaValue) {
-		this.openaValue = openaValue;
 	}
 
 	public double getCloseValue() {
 		return closeValue;
 	}
 
-	public void setCloseValue(double closeValue) {
-		this.closeValue = closeValue;
-	}
-
 	public double getHighestValue() {
 		return highestValue;
 	}
 
-	public void setHighestValue(double highestValue) {
-		this.highestValue = highestValue;
-	}
-
 	public double getLowestValue() {
 		return lowestValue;
-	}
-
-	public void setLowestValue(double lowestValue) {
-		this.lowestValue = lowestValue;
 	}
 
 	@Override

@@ -20,9 +20,9 @@ class TradedValuesDataUtilsTests {
 
 	@BeforeEach
 	void setUp() {
-		data.add(new MarketData(null, LocalTime.of(10, 10), "AAPL", 100.0, 2l));
-		data.add(new MarketData(null, LocalTime.of(10, 15), "AAPL", 200.0, 1l));
-		data.add(new MarketData(null, LocalTime.of(10, 20), "AAPL", 300.0, 1l));
+		data.add(new MarketData(null, LocalTime.of(10, 10), "AAPL", 300.0, 2l));
+		data.add(new MarketData(null, LocalTime.of(10, 15), "AAPL", 100.0, 1l));
+		data.add(new MarketData(null, LocalTime.of(10, 20), "AAPL", 200.0, 1l));
 	}
 
 	@Test
@@ -49,7 +49,7 @@ class TradedValuesDataUtilsTests {
 		Function<List<MarketData>, Double> function = new TradedValuesDataUtils().getOpenValue("AAPL");
 
 		assertEquals(data.size(), 3);
-		assertEquals(100.0, function.apply(data), 0.001);
+		assertEquals(300.0, function.apply(data), 0.001);
 	}
 
 	@Test
@@ -58,7 +58,7 @@ class TradedValuesDataUtilsTests {
 		Function<List<MarketData>, Double> function = new TradedValuesDataUtils().getCloseValue("AAPL");
 
 		assertEquals(data.size(), 3);
-		assertEquals(300.0, function.apply(data), 0.001);
+		assertEquals(200.0, function.apply(data), 0.001);
 	}
 
 	@Test
@@ -67,7 +67,7 @@ class TradedValuesDataUtilsTests {
 		Function<List<MarketData>, BigDecimal> function = new TradedValuesDataUtils().getTradedVolume("AAPL");
 
 		assertEquals(data.size(), 3);
-		assertEquals(700, function.apply(data).doubleValue(), 0.01);
+		assertEquals(900, function.apply(data).doubleValue(), 0.01);
 	}
 
 	@Test

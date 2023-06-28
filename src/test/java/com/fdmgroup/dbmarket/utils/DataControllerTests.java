@@ -43,4 +43,13 @@ class DataControllerTests {
 		List<TradedValues> tradedValues = dataController.loadTradedValues(data, "ABC");
 		assertEquals(2, tradedValues.size());
 	}
+	
+	@Test
+	void testLoadTradedValuesReturnsNA_WhenTickerIsNotPresent() {
+		DataController dataController = new DataController();
+
+		List<TradedValues> tradedValues = dataController.loadTradedValues(data, "TRX");
+		assertEquals(2, tradedValues.size());
+		
+	}
 }

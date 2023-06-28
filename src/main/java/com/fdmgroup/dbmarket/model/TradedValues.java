@@ -42,56 +42,28 @@ public class TradedValues {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
-
 	public String getCompanyTicker() {
 		return companyTicker;
-	}
-
-	public void setCompanyTicker(String companyTicker) {
-		this.companyTicker = companyTicker;
 	}
 
 	public double getOpenValue() {
 		return openValue;
 	}
 
-	public void setOpenValue(double openValue) {
-		this.openValue = openValue;
-	}
-
 	public double getCloseValue() {
 		return closeValue;
-	}
-
-	public void setCloseValue(double closeValue) {
-		this.closeValue = closeValue;
 	}
 
 	public double getHighestValue() {
 		return highestValue;
 	}
 
-	public void setHighestValue(double highestValue) {
-		this.highestValue = highestValue;
-	}
-
 	public double getLowestValue() {
 		return lowestValue;
 	}
 
-	public void setLowestValue(double lowestValue) {
-		this.lowestValue = lowestValue;
-	}
-
 	public BigDecimal getTradedVolume() {
 		return tradedVolume;
-	}
-
-	public void setTradedVolume(BigDecimal tradedVolume) {
-		this.tradedVolume = tradedVolume;
 	}
 
 	@Override
