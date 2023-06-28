@@ -1,92 +1,95 @@
-# dataproject
+# dbmarket-project
 
+My solution to the Project for DB
 
+## Table of Contents
 
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://git.fdmgroup.com/C.Vakasiras/dataproject.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://git.fdmgroup.com/C.Vakasiras/dataproject/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Output](#output)
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+
+Requires JavaSE 17  and JUnit 5.
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+Starting on **MarketMain** class we load Data from the Csv file using the CsvReader class. Then using the **DataController**  and **IndexController** classes 
+we create Lists the hold the values to be displayed.  <br />
+The csvreader directory holds the **CsvReader** class Handles the whole reading process for a csv file.  <br />
+While instantiating this class you need to pass a String representing the file path. <br />
+This class uses the ; as delimiter to separate the values.  <br />
+The model folder contains the Objects that are created and later stored in the Lists. <br />
+Finally the utils folder holds 2 classes **DataController** and **IndexController** that handle the Daily traded values and daily Index respectively. <br />
+The **TradedValuesDataUtils** class contains the Functions that are used to filter out the expected data. <br />
+**Summing Up**
+1. Start with MarketMain 
+2. Move to CsvReader
+3. DataController
+4. TradedDataUtils
+5. IndexController
+<br />
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+Models explained bellow. <br />
+
+**IndexValues** <br />
+This class represents the values of an index for a specific date. <br />
+  **date:**     The date of the index values. <br />
+  **openaValue:** The opening value of the index.<br />
+  **closeValue:** The closing value of the index.<br />
+  **highestValue:** The highest value of the index.<br />
+  **lowestValue:**  The lowest value of the index.<br />
+  <br />
+
+**MarketData**   <br />
+ This class represents market data for a specific transaction.  <br />
+
+**transactionDate:**  The date of the transaction. <br />
+**transactionTime:**  The time of the transaction. <br />
+**companyTicker:**    The ticker symbol of the company. <br />
+**price:**            The price of the security. <br />
+**securitiesTraded:** The number of securities traded.' <br />
+ <br />
+
+**TradedValues** <br />
+This class represents the traded values of a company for a specific date.<br />
+
+**date:**          The date of the traded values.<br />
+**companyTicker:** The ticker symbol of the company.<br />
+**openValue:**     The opening value of the company's stock.<br />
+**closeValue:**    The closing value of the company's stock.<br />
+**highestValue:**  The highest value of the company's stock.<br />
+**lowestValue:**   The lowest value of the company's stock.<br />
+**tradedVolume:**  The volume of securities traded.<br />
+  
 
 ## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Anyone can contribute. Some additional improvement could be caching the backup values. Also for the visualization.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Output
+```console
+All available tickers in the data set: [NGL, MEGA, TRX, ABC]
+--------TRX Processing--------
+Processing Day: 2023-06-09
+Available tickers on this day: [NGL, MEGA, ABC]
+--------TRX Processed-------
+--------TRX Processing--------
+Processing Day: 2023-06-08
+Available tickers on this day: [NGL, MEGA, TRX, ABC]
+--------TRX Processed-------
+.
+.
+.
+.
+---------------2023-06-01------------
+-------------------------------------
+TradedValues [date=2023-06-01, companyTicker=TRX, openValue=3997.9, closeValue=3884.68, highestValue=4038.11, lowestValue=3730.47, tradedVolume=11348798271.36]
+TradedValues [date=2023-06-01, companyTicker=ABC, openValue=999.99, closeValue=999.87, highestValue=1000.09, lowestValue=999.75, tradedVolume=145050474.40]
+TradedValues [date=2023-06-01, companyTicker=NGL, openValue=5000.83, closeValue=5117.97, highestValue=5197.55, lowestValue=4926.73, tradedVolume=22053540293.64]
+TradedValues [date=2023-06-01, companyTicker=MEGA, openValue=2997.95, closeValue=3011.26, highestValue=3015.11, lowestValue=2927.89, tradedVolume=4169982578.54]
+-----------Index --------------
+IndexValues [date=2023-06-01, openaValue=3799,30, closeValue=3827,49, highestValue=3891,18, lowestValue=3695,13]
+-------------------------------------
+```
